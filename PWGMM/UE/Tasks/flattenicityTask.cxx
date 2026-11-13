@@ -129,7 +129,7 @@ struct FlattenicityTask {
   static constexpr int kChannelToModuleC[NchC] = {18, 18, 18, 18, 20, 20, 20, 20, 14, 14, 14, 14, 10, 10, 10, 10, 6, 6, 6, 6, 4, 4, 4, 4, 19, 19, 19, 19, 21, 21, 21, 21, 15, 15, 15, 15, 11, 11, 11, 11, 7, 7, 7, 7, 5, 5, 5, 5, 24, 24, 24, 24, 26, 26, 26, 26, 22, 22, 22, 22, 16, 16, 16, 16, 12, 12, 12, 12, 8, 8, 8, 8, 2, 2, 2, 2, 0, 0, 0, 0, 25, 25, 25, 25, 27, 27, 27, 27, 23, 23, 23, 23, 17, 17, 17, 17, 13, 13, 13, 13, 9, 9, 9, 9, 3, 3, 3, 3, 1, 1, 1, 1};
 
   static constexpr int NFlatBins = 10000;
-  static constexpr int NCorrTitleUpdateInterval = 500;  // refresh Pearson r in the titles every N filled events
+  static constexpr int NCorrTitleUpdateInterval = 500; // refresh Pearson r in the titles every N filled events
 
   // ========================================================================
   // Histograms
@@ -510,7 +510,7 @@ struct FlattenicityTask {
   // collision of the MC collision that passes the standard event selection.
   // Geometry: real FT0 module positions (see kModule* / kChannelToModule*).
   // ========================================================================
-  
+
   void processMC(aod::McCollisions::iterator const& mcCollision,
                  ColMCRecTable const& recCols,
                  aod::McParticles const& mcParticles,
@@ -525,7 +525,7 @@ struct FlattenicityTask {
     std::array<float, NSectorsCombined> truthCombArr{};
 
     int nChINEL = 0;
-    std::vector<float> truthPt;  // primary charged, |eta| < cfgEtaMax, pT > cfgPtMin
+    std::vector<float> truthPt; // primary charged, |eta| < cfgEtaMax, pT > cfgPtMin
     for (const auto& particle : mcParticles) {
       if (particle.mcCollisionId() != mcCollision.globalIndex())
         continue;
